@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #131213;
+  font-family: "Open Sans", sans-serif;
+}
+
+.header {
+  color: #fff;
+  background-color: #2c2d2d;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.header__content {
+  width: 100%;
+  max-width: 1200px;
+}
+.header__content img {
+  position: relative;
+  top: -25px;
+  left: 170px;
+  width: 35px;
+  height: 35px;
+}
+.header__content h1 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+}
+.header__content .plan_rep {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.header__content .plan_rep p {
+  font-size: 14px;
+  margin: 0 100px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.header__content .plan_rep .text-left {
+  position: relative;
+  font-weight: 500;
+  left: 40px;
+}
+.header__content .plan_rep .text-left::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -300%;
+  width: 650%;
+  border-bottom: 2px solid #feffff;
+}
+.header__content .plan_rep .text-right {
+  color: #b8b9b9;
+}
+
+.week-nav li {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  right: -30px;
+  color: #e8ebec;
+  font-size: 15px;
+}
+.week-nav h2 {
+  font-size: 15px;
+  position: relative;
+  top: 35px;
+  right: 160px;
+}
+
+.schedule {
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  position: sticky;
+}
+.schedule h2 {
+  color: #fff;
+}
+.schedule .lesson {
+  background-color: #121313;
+  border-bottom: 1px solid #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.schedule .lesson h2 {
+  font-size: 18px;
+}
+.schedule .lesson .title {
+  font-size: 15px;
+}
+.schedule .lesson:last-child {
+  border-bottom: none;
+}
+.schedule .lesson:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+.schedule svg {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lesson:not(.invisible) {
+  border-bottom: 1px solid #333;
+}
+.lesson.invisible {
+  border-bottom: none;
+}
+
+.time,
+.title,
+.room {
+  margin: 0 20px;
+  color: #fff;
+}
+
+.title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.room {
+  font-weight: 300;
+}
+
+.substitute {
+  color: #9b59b6;
+}
+
+.lesson:after {
+  content: ">";
+  color: #ccc;
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+}
+
+.lesson.invisible:after {
+  content: none;
+}
+
+.timeroom {
+  color: #a6a9ad;
+  font-size: 12px;
+}
+
+.invisible h2,
+.invisible .title,
+.invisible .timeroom {
+  color: #121212;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  align-items: center;
+  font-size: 12px;
+  border-top: 1px solid #474747;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.footer .footer-nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.footer .footer-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 10px;
+}
+.footer .footer-link:hover {
+  color: #bbb;
+}
+.footer .footer-link svg {
+  fill: currentColor;
+  margin-bottom: 5px;
+}
+.footer .footer-link span {
+  color: #b8b8bf;
+  display: block;
+  font-size: 0.75em;
+}
+.footer .header,
+.footer .footer {
+  position: fixed;
+  width: 100%;
+}
+.footer .header {
+  top: 0;
+}
+.footer .footer {
+  bottom: 0;
+}
+.footer .main {
+  padding-top: 60px;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+}
+.footer .footer-link.openInput {
+  cursor: pointer;
+}
+.footer .input-panel {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  background-image: url(../ico/alvarez.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+.footer .input-panel.panel-open .closebtn {
+  display: block;
+}
+.footer .closebtn {
+  display: none;
+}
+.footer .input-panel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.footer .input-panel form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.footer .input-panel label {
+  color: #ffffff;
+  padding: 8px;
+}
+.footer .input-panel input {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #333;
+  color: white;
+  border: none;
+}
+.footer .input-panel button {
+  cursor: pointer;
+  padding: 10px;
+  background: #454948;
+  color: white;
+  border: none;
+}
+.footer .errorLesson {
+  color: #ff000f;
+  display: none;
+}
+
+.lesson {
+  position: relative;
+}
+.lesson .cancel-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background-color: #6600cc;
+}
+.lesson .cancel-text {
+  display: block;
+  position: relative;
+  right: 9px;
+  font-size: 0.8em;
+  color: #b4b7bb;
+  font-weight: lighter;
+  margin-left: 10px;
+}/*# sourceMappingURL=style.css.map */
