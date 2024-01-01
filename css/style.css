@@ -246,6 +246,8 @@ body {
   background-position: center;
   transition: 0.5s;
   padding-top: 30px;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 .footer .input-panel.panel-open .closebtn {
   display: block;
@@ -284,10 +286,6 @@ body {
   background: #454948;
   color: white;
   border: none;
-}
-.footer .errorLesson {
-  color: #ff000f;
-  display: none;
 }
 
 .lesson {
