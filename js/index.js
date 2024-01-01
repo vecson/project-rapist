@@ -238,13 +238,32 @@ const generateRandomSchedule = () => {
 		lessons = lessons.concat(vocationalLessons)
 	}
 
+	let availableLessons = [...lessons] // Kopia listy lekcji do wyboru
 	let previousLesson = ''
+	let doubleLessonAllowed = true // Flaga dozwolenia na powtórzenie lekcji
 
 	for (let i = 1; i <= 8; i++) {
 		let chosenLesson
+		if (availableLessons.length === 0) {
+			// Resetowanie listy lekcji, jeśli wszystkie zostały już wybrane
+			availableLessons = [...lessons]
+		}
+
 		do {
-			chosenLesson = lessons[Math.floor(Math.random() * lessons.length)]
-		} while (vocationalLessons.includes(chosenLesson) && chosenLesson === previousLesson)
+			const randomIndex = Math.floor(Math.random() * availableLessons.length)
+			chosenLesson = availableLessons[randomIndex]
+
+			// Usunięcie wybranej lekcji z dostępnych, chyba że powtórzenie jest dozwolone
+			if (chosenLesson !== previousLesson || !doubleLessonAllowed) {
+				availableLessons.splice(randomIndex, 1)
+			}
+		} while (chosenLesson === previousLesson && !doubleLessonAllowed)
+
+		if (chosenLesson === previousLesson) {
+			doubleLessonAllowed = false // Blokada dalszych powtórzeń
+		} else {
+			doubleLessonAllowed = true // Resetowanie dozwolenia na powtórzenie
+		}
 
 		const randomRoom = rooms[Math.floor(Math.random() * rooms.length)]
 		const lessonDiv = document.querySelector(`.lesson.${getLessonClass(i.toString())}`)
@@ -252,13 +271,20 @@ const generateRandomSchedule = () => {
 			const titleSpan = lessonDiv.querySelector('.title')
 			const timeRoomSpan = titleSpan.querySelector('.timeroom')
 			titleSpan.firstChild.textContent = chosenLesson
-
-			// Zachowanie istniejącego czasu lekcji i aktualizacja sali
-			let [time, _] = timeRoomSpan.textContent.split(',') // Dzielimy tekst na czas i salę
+			let [time, _] = timeRoomSpan.textContent.split(',')
 			timeRoomSpan.textContent = `${time.trim()}, sala ${randomRoom}`
 		}
 
-		previousLesson = chosenLesson
+		previousLesson = chosenLesson // Aktualizacja ostatnio wybranej lekcji
+	}
+}
+
+function updateMonthName() {
+	const monthNames = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru']
+	const currentMonth = new Date().getMonth() // Miesiące są indeksowane od 0
+	const monthElement = document.querySelector('.week-nav h2')
+	if (monthElement) {
+		monthElement.textContent = monthNames[currentMonth]
 	}
 }
 
@@ -266,8 +292,7 @@ const generateRandomSchedule = () => {
 document.addEventListener('DOMContentLoaded', function () {
 	updateWeekDates()
 	highlightCurrentDay()
-
-	// Przypisanie funkcji do przycisków i ikon
+	updateMonthName()
 	document.getElementById('editLessonButton').addEventListener('click', editLesson)
 	document.querySelector('.openInput').addEventListener('dblclick', openNav)
 	document.querySelector('#generateRandomScheduleButton').addEventListener('click', generateRandomSchedule)
