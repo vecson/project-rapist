@@ -286,6 +286,8 @@ body {
 		background-position: center;
 		transition: 0.5s;
 		padding-top: 30px;
+		overflow-y: auto;
+		max-height: 100vh;
 	}
 
 	.input-panel.panel-open .closebtn {
