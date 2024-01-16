@@ -13,7 +13,23 @@
     <header class="header">
         <div class="header__content">
             <h1>Plan lekcji</h1>
-            <img src="./ico/user.png" alt="User Icon" />
+            <button id="userButton" class="user-button">
+                <img src="./ico/user.png" alt="User Icon" />
+            </button>
+            <div id="accountMenu" class="account-menu">
+                <div class="accountSelected">
+                    <img src="./ico/user.png" alt="User Icon">
+                    <h1 class="accountMenuHeading"></h1><br>
+                    <p class="accountMenuClass"></p>
+                </div>
+
+                <div class="accountSettings">
+                    <p>Idź do ustawień kont</p>
+                </div>
+
+            </div>
+            <div id="overlay" class="overlay"></div>
+
             <div class="plan_rep">
                 <p class="text-left">Plan</p>
                 <p class="text-right">Zastępstwa</p>
@@ -45,7 +61,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -58,7 +74,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -71,7 +87,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -84,7 +100,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -97,7 +113,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -110,7 +126,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -123,7 +139,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -136,7 +152,7 @@
                     </span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                    <path fill="#2bff00"
+                    <path fill="#0db51b"
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
@@ -244,11 +260,22 @@
                     <button type="button" onclick="removeLesson()">Usuń lekcję</button>
                     <label for="lessonToCancel">Którą lekcję chcesz odwołać?</label>
                     <input type="number" id="lessonToCancel" name="lessonToCancel">
-                    <button type="button" onclick="cancelLesson()">Przekreśl lekcję</button>
+                    <button type="button" onclick="cancelLesson()">Przekreśl lekcję</button><br>
+
+                    <label for="fullName">Imię i nazwisko:</label>
+                    <input type="text" id="fullName" name="fullName">
+
+                    <label for="userClass">Klasa:</label>
+                    <input type="text" id="userClass" name="userClass" placeholder="np. 3A">
+
+                    <button type="button" id="updateAccountInfoButton" onclick="updateAccountInfo()">Dodaj</button>
+
+
                     <br><br>
                     <label for="includeVocational">Uwzględniaj lekcje zawodowe do generowania(t. programista): <input
                             type="checkbox" id="includeVocational" name="includeVocational"></label>
-                    <button type="button" id="generateRandomScheduleButton" onclick="generateRandomSchedule()">Generuj losowy plan</button>
+                    <button type="button" id="generateRandomScheduleButton" onclick="generateRandomSchedule()">Generuj
+                        losowy plan</button>
 
                 </form>
             </div>

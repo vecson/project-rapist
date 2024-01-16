@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 * {
   box-sizing: border-box;
@@ -65,6 +66,75 @@ body {
 }
 .header__content .plan_rep .text-right {
   color: #b8b9b9;
+}
+.header .user-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10; /* Aby był nad overlay */
+}
+.header .overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Przyćmienie */
+  z-index: 9; /* Niższy niż przycisk użytkownika, ale wyższy niż reszta strony */
+}
+.header .account-menu {
+  display: none;
+  position: absolute;
+  /* pozycjonowanie i styl menu */
+  background-color: #121212;
+  top: 50px;
+  left: 50px;
+  width: 300px;
+  height: 150px;
+  z-index: 10;
+}
+.header .account-menu .accountSelected {
+  height: 60px;
+  background-color: #081d9a;
+}
+.header .account-menu .accountSelected .accountMenuHeading {
+  position: absolute;
+  bottom: 115px;
+  left: 80px;
+  font-size: 14px;
+  color: #fbfbfc;
+}
+.header .account-menu .accountSelected img {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+.header .account-menu .accountSelected p {
+  position: absolute;
+  color: #daf0fb;
+  font-weight: 300;
+  font-size: 10px;
+  top: 35px;
+  left: 82px;
+}
+.header .account-menu .accountSettings {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  top: 100px;
+  font-weight: bold;
+  border-top: 1px solid #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .account-menu .accountSettings p {
+  position: absolute;
+  font-size: 13px;
 }
 
 .week-nav li {
@@ -243,7 +313,7 @@ body {
   top: 0;
   right: 0;
   background: rgb(20, 20, 24);
-  background: linear-gradient(180deg, rgba(20, 20, 24, 1) 0%, rgba(54, 54, 64, 1) 35%, rgba(21, 21, 22, 1) 100%);
+  background: linear-gradient(180deg, rgb(20, 20, 24) 0%, rgb(54, 54, 64) 35%, rgb(21, 21, 22) 100%);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

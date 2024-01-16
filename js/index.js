@@ -109,6 +109,27 @@ const cancelLesson = () => {
 	}
 }
 
+const toggleMenu = () => {
+	const overlay = document.getElementById('overlay')
+	const accountMenu = document.getElementById('accountMenu')
+	// Przełącz wyświetlanie overlay i menu
+	overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block'
+	accountMenu.style.display = accountMenu.style.display === 'flex' ? 'none' : 'block'
+}
+
+// Funkcja do aktualizacji informacji konta
+const updateAccountInfo = () => {
+	const fullName = document.getElementById('fullName').value
+	const userClass = document.getElementById('userClass').value
+
+	// Aktualizacja nagłówka i klasy w menu konta
+	const accountMenuHeading = document.querySelector('.accountMenuHeading')
+	const accountMenuClass = document.querySelector('.accountMenuClass')
+
+	accountMenuHeading.textContent = fullName // Pełne imię i nazwisko
+	accountMenuClass.textContent = `ZS3 - ${userClass} (T3)`
+}
+
 // Funkcja do aktualizacji dat tygodnia
 function updateWeekDates() {
 	const today = new Date()
@@ -296,4 +317,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('editLessonButton').addEventListener('click', editLesson)
 	document.querySelector('.openInput').addEventListener('dblclick', openNav)
 	document.querySelector('#generateRandomScheduleButton').addEventListener('click', generateRandomSchedule)
+	document.getElementById('updateAccountInfoButton').addEventListener('click', updateAccountInfo)
+
+	document.getElementById('userButton').addEventListener('click', function (event) {
+		toggleMenu()
+		event.stopPropagation() // Zatrzymaj propagację, aby kliknięcie nie zostało obsłużone ponownie przez window
+	})
+
+	// Nasłuchiwanie kliknięcia na overlay
+	document.getElementById('overlay').addEventListener('click', toggleMenu)
+
+	// Nasłuchiwanie kliknięcia poza menu, aby je zamknąć
+	window.addEventListener('click', function (event) {
+		const accountMenu = document.getElementById('accountMenu')
+		if (event.target !== accountMenu && !accountMenu.contains(event.target)) {
+			// Jeśli kliknięcie było poza menu, zamknij menu
+			document.getElementById('overlay').style.display = 'none'
+			document.getElementById('accountMenu').style.display = 'none'
+		}
+	})
 })
